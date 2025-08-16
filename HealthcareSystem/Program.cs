@@ -4,23 +4,20 @@ class Program
 {
     static void Main()
     {
-        // Create instance of HealthSystemApp
+        // --------------------- Main Application Flow ---------------------
         var app = new HealthSystemApp();
 
-        // Seed sample data
+        // 1. Seed sample data (patients and prescriptions)
         app.SeedData();
 
-        // Build the prescription dictionary
+        // 2. Build the dictionary mapping PatientId -> List<Prescription>
         app.BuildPrescriptionMap();
 
-        // Print all patients
+        // 3. Print all patients
         app.PrintAllPatients();
 
-        // Print prescriptions for each patient
-        foreach (var patientId in new int[] { 1, 2, 3 })
-        {
-            app.PrintPrescriptionsForPatient(patientId);
-        }
+        // 4. Select a specific patient (e.g., Patient ID 2) and display their prescriptions
+        int selectedPatientId = 2;
+        app.PrintPrescriptionsForPatient(selectedPatientId);
     }
 }
-
